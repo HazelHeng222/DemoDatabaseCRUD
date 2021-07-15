@@ -115,6 +115,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 String noteContent = cursor.getString(1);
                 Note note = new Note(id, noteContent);
                 notes.add(note);
+                Log.i("DBHelper", note.toString());
+
             } while (cursor.moveToNext());
         }
         cursor.close();

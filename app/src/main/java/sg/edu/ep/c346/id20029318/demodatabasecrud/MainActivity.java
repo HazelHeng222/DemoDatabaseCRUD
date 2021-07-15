@@ -75,15 +75,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(MainActivity.this);
-                al.clear();
-                al.addAll(dbh.getAllNotes());
 
                 //filter result
                 String filterText = etContent.getText().toString().trim();
                 if(filterText.length() == 0) {
+                    Toast.makeText(MainActivity.this, "no filter", Toast.LENGTH_SHORT).show();
+                    al.clear();
                     al.addAll(dbh.getAllNotes());
                 }
                 else{
+                    Toast.makeText(MainActivity.this, filterText, Toast.LENGTH_SHORT).show();
+                    al.clear();
                     al.addAll(dbh.getAllNotes(filterText));
                 }
 
